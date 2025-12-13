@@ -2,7 +2,7 @@
 
 This file tracks implementation progress for the Video to Text Transcriber project.
 
-## Current Status: Phase 1 Complete
+## Current Status: Phase 2 Complete
 
 ---
 
@@ -13,8 +13,8 @@ This file tracks implementation progress for the Video to Text Transcriber proje
 - [x] Setup Python package (`__init__.py` files)
 
 ## Phase 2: Core Layer
-- [ ] `app/core/config.py` - App configuration
-- [ ] `app/core/models.py` - Data models/schemas
+- [x] `app/core/config.py` - App configuration
+- [x] `app/core/models.py` - Data models/schemas
 
 ## Phase 3: Services Layer
 - [ ] `app/services/audio.py` - FFmpeg audio extraction
@@ -50,6 +50,10 @@ This file tracks implementation progress for the Video to Text Transcriber proje
 - Created `requirements.txt` with FastAPI, faster-whisper, pywebview
 - Created `requirements-dev.txt` with pytest, ruff, mypy, pyinstaller
 - Created `__init__.py` files for all packages
+
+### Phase 2 (Core Layer)
+- `config.py`: Settings class with pydantic-settings, env var support (VTT_ prefix)
+- `models.py`: JobStatus enum, TranscriptionJob, TranscriptionSegment, API response models
 
 ---
 

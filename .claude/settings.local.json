@@ -1,0 +1,12 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(cd:*)",
+      "Bash(git add:*)",
+      "Bash(git commit -m \"$(cat <<''EOF''\nAdd project design documentation and development guidelines\n\n- DESIGN.md: Full architecture, tech stack, data flow, and API specs\n- CLAUDE.md: Development guidelines, engineering principles, and conventions\n- PROGRESS.md: Implementation task tracker organized by phase\n\n🤖 Generated with [Claude Code](https://claude.com/claude-code)\n\nCo-Authored-By: Claude Opus 4.5 <noreply@anthropic.com>\nEOF\n)\")",
+      "Bash(git push)",
+      "Bash(git commit -m \"$(cat <<''EOF''\nPhase 1: Project setup complete\n\n- Create directory structure (app/api, app/services, app/core, tests)\n- Add requirements.txt with FastAPI, faster-whisper, pywebview\n- Add requirements-dev.txt with pytest, ruff, mypy, pyinstaller\n- Setup Python packages with __init__.py files\n- Update PROGRESS.md with completed tasks\n\n🤖 Generated with [Claude Code](https://claude.com/claude-code)\n\nCo-Authored-By: Claude Opus 4.5 <noreply@anthropic.com>\nEOF\n)\")",
+      "Bash(git commit:*)"
+    ]
+  }
+}
