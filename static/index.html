@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Video to Text Transcriber</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Video to Text Transcriber</h1>
+            <p class="subtitle">Drop a video or audio file to transcribe it locally</p>
+        </header>
+
+        <main>
+            <!-- Upload Section -->
+            <section id="upload-section" class="section">
+                <div id="drop-zone" class="drop-zone">
+                    <div class="drop-zone-content">
+                        <svg class="upload-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                            <polyline points="17 8 12 3 7 8"/>
+                            <line x1="12" y1="3" x2="12" y2="15"/>
+                        </svg>
+                        <p class="drop-text">Drop video/audio file here</p>
+                        <p class="drop-subtext">or click to browse</p>
+                        <p class="supported-formats">Supported: MP4, MKV, AVI, MOV, MP3, WAV, M4A, and more</p>
+                    </div>
+                    <input type="file" id="file-input" accept=".mp4,.mkv,.avi,.mov,.wmv,.flv,.webm,.mp3,.wav,.m4a,.aac,.ogg,.flac" hidden>
+                </div>
+            </section>
+
+            <!-- Progress Section -->
+            <section id="progress-section" class="section hidden">
+                <div class="progress-container">
+                    <div class="file-info">
+                        <span id="file-name" class="file-name"></span>
+                        <span id="status-text" class="status-text">Uploading...</span>
+                    </div>
+                    <div class="progress-bar-container">
+                        <div id="progress-bar" class="progress-bar"></div>
+                    </div>
+                    <p id="progress-text" class="progress-text">0%</p>
+                </div>
+                <button id="cancel-btn" class="btn btn-secondary">Cancel</button>
+            </section>
+
+            <!-- Result Section -->
+            <section id="result-section" class="section hidden">
+                <div class="result-header">
+                    <h2>Transcript</h2>
+                    <div class="result-meta">
+                        <span id="result-language" class="meta-item"></span>
+                        <span id="result-duration" class="meta-item"></span>
+                    </div>
+                </div>
+
+                <div class="transcript-container">
+                    <textarea id="transcript-text" readonly></textarea>
+                </div>
+
+                <div class="download-options">
+                    <label>Download as:</label>
+                    <div class="btn-group">
+                        <button id="download-txt" class="btn btn-primary">Text (.txt)</button>
+                        <button id="download-srt" class="btn btn-secondary">Subtitles (.srt)</button>
+                        <button id="download-vtt" class="btn btn-secondary">WebVTT (.vtt)</button>
+                    </div>
+                </div>
+
+                <button id="new-file-btn" class="btn btn-outline">Transcribe Another File</button>
+            </section>
+
+            <!-- Error Section -->
+            <section id="error-section" class="section hidden">
+                <div class="error-container">
+                    <svg class="error-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="12" cy="12" r="10"/>
+                        <line x1="12" y1="8" x2="12" y2="12"/>
+                        <line x1="12" y1="16" x2="12.01" y2="16"/>
+                    </svg>
+                    <h2>Error</h2>
+                    <p id="error-message"></p>
+                    <button id="retry-btn" class="btn btn-primary">Try Again</button>
+                </div>
+            </section>
+        </main>
+
+        <footer>
+            <p>All processing happens locally. Your files never leave your computer.</p>
+        </footer>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
