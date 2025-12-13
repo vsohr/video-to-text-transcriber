@@ -1,11 +1,16 @@
 """Data models and schemas."""
 
-from datetime import datetime
+from datetime import datetime, timezone
 from enum import Enum
 from pathlib import Path
 from typing import Optional
 
 from pydantic import BaseModel, Field
+
+
+def _utc_now() -> datetime:
+    """Get current UTC time."""
+    return datetime.now(timezone.utc)
 
 
 class JobStatus(str, Enum):
@@ -51,7 +56,7 @@ class TranscriptionJob(BaseModel):
     status: JobStatus = Field(default=JobStatus.PENDING)
     progress: float = Field(default=0.0, ge=0.0, le=100.0, description="Progress percentage")
     error_message: Optional[str] = Field(default=None)
-    created_at: datetime = Field(default_factory=datetime.now)
+    created_at: datetime = Field(default_factory=_utc_now)
     completed_at: Optional[datetime] = Field(default=None)
     result: Optional[TranscriptionResult] = Field(default=None)
 

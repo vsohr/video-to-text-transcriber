@@ -2,7 +2,7 @@
 
 This file tracks implementation progress for the Video to Text Transcriber project.
 
-## Current Status: Phase 2 Complete
+## Current Status: Phase 3 Complete
 
 ---
 
@@ -17,9 +17,9 @@ This file tracks implementation progress for the Video to Text Transcriber proje
 - [x] `app/core/models.py` - Data models/schemas
 
 ## Phase 3: Services Layer
-- [ ] `app/services/audio.py` - FFmpeg audio extraction
-- [ ] `app/services/transcription.py` - Faster-Whisper integration
-- [ ] Unit tests for services
+- [x] `app/services/audio.py` - FFmpeg audio extraction
+- [x] `app/services/transcription.py` - Faster-Whisper integration
+- [x] Unit tests for services
 
 ## Phase 4: API Layer
 - [ ] `app/api/routes.py` - API endpoints
@@ -54,6 +54,13 @@ This file tracks implementation progress for the Video to Text Transcriber proje
 ### Phase 2 (Core Layer)
 - `config.py`: Settings class with pydantic-settings, env var support (VTT_ prefix)
 - `models.py`: JobStatus enum, TranscriptionJob, TranscriptionSegment, API response models
+
+### Phase 3 (Services Layer)
+- `audio.py`: FFmpeg audio extraction with async support, 16kHz mono WAV output
+- `transcription.py`: TranscriptionService class with Faster-Whisper, progress callbacks
+- `tests/conftest.py`: Shared pytest fixtures (temp_dir, sample paths)
+- `tests/services/test_audio.py`: Unit tests for audio extraction
+- `tests/services/test_transcription.py`: Unit tests for transcription service
 
 ---
 

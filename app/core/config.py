@@ -3,11 +3,24 @@
 from pathlib import Path
 from typing import Literal
 
-from pydantic_settings import BaseSettings
+from pydantic import Field
+from pydantic_settings import BaseSettings, SettingsConfigDict
+
+
+# Default allowed file extensions
+DEFAULT_ALLOWED_EXTENSIONS = frozenset({
+    ".mp4", ".mkv", ".avi", ".mov", ".wmv", ".flv", ".webm",
+    ".mp3", ".wav", ".m4a", ".aac", ".ogg", ".flac"
+})
+
+# Default output formats
+DEFAULT_OUTPUT_FORMATS = frozenset({".txt", ".srt", ".vtt"})
 
 
 class Settings(BaseSettings):
     """Application settings with environment variable support."""
+
+    model_config = SettingsConfigDict(env_prefix="VTT_")
 
     # App info
     app_name: str = "Video to Text Transcriber"
@@ -27,16 +40,10 @@ class Settings(BaseSettings):
 
     # File settings
     max_file_size_mb: int = 500
-    allowed_extensions: set[str] = {
-        ".mp4", ".mkv", ".avi", ".mov", ".wmv", ".flv", ".webm",
-        ".mp3", ".wav", ".m4a", ".aac", ".ogg", ".flac"
-    }
+    allowed_extensions: frozenset[str] = Field(default=DEFAULT_ALLOWED_EXTENSIONS)
 
     # Output formats
-    output_formats: set[str] = {".txt", ".srt", ".vtt"}
-
-    class Config:
-        env_prefix = "VTT_"
+    output_formats: frozenset[str] = Field(default=DEFAULT_OUTPUT_FORMATS)
 
     def ensure_directories(self) -> None:
         """Create required directories if they don't exist."""
