@@ -2,7 +2,7 @@
 
 This file tracks implementation progress for the Video to Text Transcriber project.
 
-## Current Status: Phase 3 Complete
+## Current Status: Phase 4 Complete
 
 ---
 
@@ -22,10 +22,10 @@ This file tracks implementation progress for the Video to Text Transcriber proje
 - [x] Unit tests for services
 
 ## Phase 4: API Layer
-- [ ] `app/api/routes.py` - API endpoints
-- [ ] `app/api/dependencies.py` - FastAPI dependencies
-- [ ] `app/main.py` - FastAPI app setup
-- [ ] Unit tests for API
+- [x] `app/api/routes.py` - API endpoints
+- [x] `app/api/dependencies.py` - FastAPI dependencies
+- [x] `app/main.py` - FastAPI app setup
+- [x] Unit tests for API
 
 ## Phase 5: Frontend
 - [ ] `static/index.html` - Main UI structure
@@ -61,6 +61,12 @@ This file tracks implementation progress for the Video to Text Transcriber proje
 - `tests/conftest.py`: Shared pytest fixtures (temp_dir, sample paths)
 - `tests/services/test_audio.py`: Unit tests for audio extraction
 - `tests/services/test_transcription.py`: Unit tests for transcription service
+
+### Phase 4 (API Layer)
+- `dependencies.py`: Job storage, service injection
+- `routes.py`: Upload, status, transcript, download endpoints with SRT/VTT formatting
+- `main.py`: FastAPI app with lifespan, static files, server/desktop modes
+- `tests/api/test_routes.py`: Unit tests for all API endpoints
 
 ---
 
