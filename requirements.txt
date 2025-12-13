@@ -1,0 +1,14 @@
+# Core dependencies
+fastapi>=0.104.0
+uvicorn>=0.24.0
+python-multipart>=0.0.6
+
+# Transcription
+faster-whisper>=0.10.0
+
+# Desktop app
+pywebview>=4.4.0
+
+# Utilities
+pydantic>=2.5.0
+pydantic-settings>=2.1.0
